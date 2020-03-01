@@ -1,5 +1,7 @@
 package com.example.busutillibrary;
 
+import android.os.Looper;
+
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -7,8 +9,8 @@ import java.util.List;
 import java.util.Map;
 
 final public class BusUtil {
-    Map<Class<?>, List<MethodCall>> methodCallMap = new HashMap<>();
-    Map<Object, List<Class<?>>> unregisterMap = new HashMap<>();
+    private final Map<Class<?>, List<MethodCall>> methodCallMap = new HashMap<>();
+    private final Map<Object, List<Class<?>>> unregisterMap = new HashMap<>();
     private volatile static BusUtil busUtil;
 
     private BusUtil() {
@@ -62,5 +64,9 @@ final public class BusUtil {
                 }
             }
         }
+    }
+
+    public boolean isMainThread(){
+        return Looper.myLooper() == Looper.getMainLooper();
     }
 }
