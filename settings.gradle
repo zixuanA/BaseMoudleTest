@@ -1,2 +1,3 @@
+include ':testmodel'
 include ':app'
 rootProject.name = "BaseMoudleTest"
