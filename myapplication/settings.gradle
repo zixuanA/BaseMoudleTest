@@ -1,0 +1,3 @@
+rootProject.name='BusUtil'
+include ':app'
+include ':busutillibrary'
